@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=League+Spartan:wght@700&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dadá Produções</title>
   <style>
     :root {
-      --bg: #f4f1ec;
-      --paper: #fbfaf8;
-      --text: #1d1d1b;
-      --muted: #6a6661;
-      --line: #d8d3cc;
-      --accent: #8b6f57;
-      --max: 1180px;
+        --bg: #F6F1E8;
+        --paper: #FBF7F1;
+        --text: #1C2942;
+        --muted: #5D6780;
+        --line: #DED7CD;
+        --accent: #B13A3D;
+        --max: 1180px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background: var(--bg);
       line-height: 1.5;
@@ -50,18 +53,51 @@
     }
 
     .brand {
-      font-size: 0.95rem;
-      letter-spacing: 0.18em;
-      font-weight: 700;
-      text-transform: uppercase;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1px;
+        line-height: 0.95;
+        color: var(--text);
     }
 
-    .menu {
-      display: flex;
-      gap: 22px;
-      flex-wrap: wrap;
-      font-size: 0.95rem;
-      color: var(--muted);
+   .brand-mark {
+        font-family: "League Spartan", "Arial Black", sans-serif;
+        font-size: 1.5rem;
+        letter-spacing: 0.06em;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+   .brand-sub {
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        color: var(--accent);
+        text-transform: lowercase;
+        margin-left: 2px;
+    }
+
+    .menu a {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.22s ease;
+}
+
+.menu a:hover::after {
+  transform: scaleX(1);
     }
 
     section { padding: 84px 0; }
@@ -88,11 +124,13 @@
     h1, h2, h3, p { margin: 0; }
 
     h1 {
-      font-size: clamp(2.6rem, 6vw, 5.4rem);
-      line-height: 0.95;
-      letter-spacing: -0.04em;
-      font-weight: 600;
-      max-width: 11ch;
+      font-family: "League Spartan", "Arial Black", sans-serif;
+  font-size: clamp(2.9rem, 6vw, 5.6rem);
+  line-height: 0.93;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  max-width: 10ch;
+  text-transform: uppercase;
     }
 
     .lead {
@@ -134,10 +172,12 @@
     }
 
     h2 {
-      font-size: clamp(1.6rem, 3vw, 2.5rem);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
-      font-weight: 600;
+      font-family: "League Spartan", "Arial Black", sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  text-transform: uppercase;
     }
 
     .section-copy {
