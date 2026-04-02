@@ -1,1 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1366, initial-scale=1.0" />
+  <title>DADA Produções</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --page-width: 1366px;
+      --content-width: 1084px;
+      --side-margin: 141px;
+      --section-gap: 180px;
+      --navy: #17304c;
+      --red: #d84b4b;
+      --off-white: #ededed;
+      --text: #1f1f1f;
+    }
 
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-width: var(--page-width);
+      background: var(--off-white);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x: auto;
+    }
+
+    img, video { display: block; }
+    a { color: inherit; }
+
+    .page {
+      width: var(--page-width);
+      margin: 0 auto;
+      background: var(--off-white);
+    }
+
+    .section-shell {
+      width: var(--page-width);
+      padding: 0 var(--side-margin);
+      margin: 0 auto;
+    }
+
+    .content {
+      width: var(--content-width);
+    }
+
+    .section {
+      margin-top: var(--section-gap);
+    }
+
+    .section-title {
+      margin: 0;
+      width: var(--content-width);
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: 0.5px;
+    }
+
+    .section-subtitle {
+      margin: 24px 0 0;
+      width: var(--content-width);
+      font-size: 22px;
+      font-style: italic;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: 0.8px;
+    }
+
+    .body-text {
+      width: var(--content-width);
+      margin: 0;
+      font-size: 19px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: 0;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      width: var(--page-width);
+      height: 768px;
+      overflow: hidden;
+      background: var(--navy);
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .hero-nav {
+      position: absolute;
+      top: 44px;
+      right: 141px;
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .hero-nav a,
+    .hero-nav span {
+      color: rgba(23, 48, 76, 0.9);
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: 0.8px;
+      text-transform: lowercase;
+    }
+
+    .hero-brand {
+      position: absolute;
+      right: 141px;
+      bottom: 150px;
+      z-index: 3;
+      width: 400px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .hero-logo {
+      width: 400px;
+      height: auto;
+    }
+
+    .hero-tagline {
+      margin: 30px 0 0;
+      width: 100%;
+      color: rgba(23, 48, 76, 0.78);
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.8px;
+      text-align: right;
+      text-transform: lowercase;
+    }
+
+    /* A PRODUTORA */
+    .producer-intro {
+      margin-top: 48px;
+    }
+
+    .producer-photo {
+      width: var(--content-width);
+      height: 396px;
+      margin-top: 48px;
+      overflow: hidden;
+    }
+
+    .producer-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 38%;
+    }
+
+    .producer-text-2 {
+      margin-top: 48px;
+    }
+
+    /* EXPERIÊNCIA */
+    .experience-grid {
+      width: var(--content-width);
+      margin-top: 48px;
+    }
+
+    .poster-row {
+      width: var(--content-width);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 100px;
+      align-items: start;
+      justify-items: center;
+    }
+
+    .poster-row + .poster-row {
+      margin-top: 48px;
+    }
+
+    .poster-item {
+      width: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .poster-visual {
+      width: 280px;
+      height: 411px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      overflow: visible;
+    }
+
+    .poster-visual img {
+      display: block;
+    }
+
+    .poster-top-left,
+    .poster-top-right {
+      width: 314px;
+      height: 412px;
+      object-fit: contain;
+    }
+
+    .poster-bottom-left {
+      width: 280px;
+      height: 412px;
+      object-fit: contain;
+    }
+
+    .poster-bottom-right {
+      width: 280px;
+      height: 411px;
+      object-fit: contain;
+    }
+
+    .poster-caption {
+      width: 280px;
+      margin-top: 24px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: 0;
+    }
+
+    .poster-caption .name,
+    .poster-caption .role {
+      font-weight: 700;
+    }
+
+    /* PARCEIRO */
+    .partner-layout {
+      width: var(--content-width);
+      height: 410px;
+      margin-top: 48px;
+      display: grid;
+      grid-template-columns: 612px 404px;
+      column-gap: 68px;
+      align-items: start;
+    }
+
+    .partner-text {
+      width: 612px;
+      height: 410px;
+    }
+
+    .partner-text .body-text {
+      width: 612px;
+    }
+
+    .partner-photo {
+      width: 404px;
+      height: 410px;
+      overflow: hidden;
+    }
+
+    .partner-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    /* CONTATO */
+    .contact-band {
+      width: var(--page-width);
+      height: 320px;
+      margin-top: var(--section-gap);
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-vertical {
+      position: absolute;
+      left: 270px;
+      top: 35px;
+      height: 250px;
+      width: auto;
+    }
+
+    .contact-content {
+      position: absolute;
+      right: 150px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 640px;
+      text-align: right;
+      color: var(--off-white);
+    }
+
+    .contact-title {
+      margin: 0;
+      font-size: 22px;
+      font-style: italic;
+      font-weight: 700;
+      line-height: 1.4;
+      letter-spacing: 0.8px;
+    }
+
+    .contact-email {
+      display: inline-block;
+      margin-top: 24px;
+      font-size: 19px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: 0;
+      text-decoration: none;
+      color: var(--off-white);
+    }
+
+    .contact-policy {
+      display: inline-block;
+      margin-top: 18px;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.4;
+      letter-spacing: 0;
+      text-decoration: none;
+      color: rgba(237, 237, 237, 0.69);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto">
+        <source src="video/dada-hero.mp4" type="video/mp4" />
+      </video>
+
+      <img class="hero-overlay" src="images/pelicula-video.png" alt="" />
+
+      <nav class="hero-nav" aria-label="Navegação principal">
+        <a href="#a-produtora">a produtora</a>
+        <span>|</span>
+        <a href="#experiencia">experiência</a>
+        <span>|</span>
+        <a href="#parceiro">parceiro estratégico</a>
+        <span>|</span>
+        <a href="#contato">contato</a>
+      </nav>
+
+      <div class="hero-brand">
+        <img class="hero-logo" src="images/site-dada-logo.png" alt="DADA produções" />
+        <p class="hero-tagline">linguagem processo realização</p>
+      </div>
+    </header>
+
+    <main>
+      <section id="a-produtora" class="section section-shell">
+        <div class="content">
+          <h2 class="section-title">a produtora</h2>
+          <p class="section-subtitle">Histórias em movimento.</p>
+
+          <p class="body-text producer-intro">
+            Muito prazer, eu sou Luiza Continentino. Minha trajetória começou na dança e, aos poucos, se desdobrou na condução de processos criativos, equipes e experiências coletivas. Durante dez anos fui bailarina da companhia Deborah Colker, onde aprendi, na prática, o rigor da criação, a força do trabalho em grupo e a atenção aos detalhes que sustentam uma obra. Depois, esse repertório encontrou outros territórios: a formação de pessoas, a criação de espaços de desenvolvimento e o trabalho em contextos sociais complexos, sempre atravessado por escuta e leitura de relações.
+          </p>
+
+          <div class="producer-photo">
+            <img src="images/foto-luiza.png" alt="Luiza Continentino" />
+          </div>
+
+          <p class="body-text producer-text-2">
+            É desse percurso e do meu desejo de participar do registro de histórias reais que nasce a DADA. Uma produtora dedicada a projetos audiovisuais de não-ficção, com atenção ao processo de cada obra, às relações que a sustentam e às escolhas que definem sua forma. Nesse caminho, conto com a interlocução de Gustavo Gama Rodrigues, meu parceiro de vida e parceiro estratégico da DADA. Sua vasta e consistente vivência no documentário amplia o nosso horizonte e fortalece a realização dos projetos.
+          </p>
+        </div>
+      </section>
+
+      <section id="experiencia" class="section section-shell">
+        <div class="content">
+          <h2 class="section-title">experiência</h2>
+          <p class="section-subtitle">Uma estrutura nova, fundada sobre atuação real em projetos de não-ficção para TV e streaming.</p>
+
+          <div class="experience-grid">
+            <div class="poster-row">
+              <div class="poster-item">
+                <div class="poster-visual">
+                  <img class="poster-top-left" src="images/artico-com-selo.png" alt="Cartaz O Labirinto do Ártico" />
+                </div>
+                <div class="poster-caption">
+                  Canal OFF / Globoplay<br>
+                  <span class="name">Luiza Continentino</span><br>
+                  <span class="role">Direção de Produção</span>
+                </div>
+              </div>
+
+              <div class="poster-item">
+                <div class="poster-visual">
+                  <img class="poster-top-right" src="images/trilhos-com-selo.png" alt="Cartaz Nos Trilhos do Mundo" />
+                </div>
+                <div class="poster-caption">
+                  Modo Viagem / Globoplay<br>
+                  <span class="name">Luiza Continentino</span><br>
+                  <span class="role">Produção Executiva</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="poster-row">
+              <div class="poster-item">
+                <div class="poster-visual">
+                  <img class="poster-bottom-left" src="images/br-com-selo.png" alt="Cartaz BR230: Muito Além da Transamazônica" />
+                </div>
+                <div class="poster-caption">
+                  Canal OFF / Globoplay<br>
+                  <span class="name">Luiza Continentino</span><br>
+                  <span class="role">Produção</span>
+                </div>
+              </div>
+
+              <div class="poster-item">
+                <div class="poster-visual">
+                  <img class="poster-bottom-right" src="images/samba.png" alt="Cartaz Samba no Quintal com Pretinho da Serrinha" />
+                </div>
+                <div class="poster-caption">
+                  Globoplay + Bis<br>
+                  <span class="name">Luiza Continentino</span><br>
+                  <span class="role">Produção</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="parceiro" class="section section-shell">
+        <div class="content">
+          <h2 class="section-title">parceiro estratégico</h2>
+          <p class="section-subtitle">Quase três décadas na estrada da não-ficção.</p>
+
+          <div class="partner-layout">
+            <div class="partner-text">
+              <p class="body-text">
+                Gustavo Gama Rodrigues é produtor e diretor com mais de 25 anos de experiência em conteúdo de não-ficção. Ao longo desse percurso, desenvolveu e realizou projetos com parceiros como Globoplay, HBO, ARTE France, YouTube Originals, ESPN, National Geographic, TV Globo e Channel 4 UK, conectando narrativas locais a temas de relevância internacional. Mestre em Documentary Filmmaking pela Goldsmiths, University of London, acompanha de perto a DADA desde o seu nascimento, somando à nossa trajetória sua bagagem e seu olhar sensível.
+              </p>
+            </div>
+
+            <div class="partner-photo">
+              <img src="images/guga.png" alt="Gustavo Gama Rodrigues" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contato" class="contact-band">
+      <img class="contact-vertical" src="images/dada-vertical.png" alt="DADA" />
+
+      <div class="contact-content">
+        <p class="contact-title">Projetos começam com uma boa conversa.</p>
+        <a class="contact-email" href="mailto:luizacontinentino@gmail.com">luizacontinentino@gmail.com</a><br>
+        <a class="contact-policy" href="politica-de-privacidade.html">Política de Privacidade e Uso de Conteúdo</a>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
