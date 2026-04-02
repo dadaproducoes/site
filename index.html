@@ -1,425 +1,216 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=League+Spartan:wght@700&display=swap" rel="stylesheet">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dadá Produções</title>
-  <style>
-    :root {
-        --bg: #F6F1E8;
-        --paper: #FBF7F1;
-        --text: #1C2942;
-        --muted: #5D6780;
-        --line: #DED7CD;
-        --accent: #B13A3D;
-        --max: 1180px;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1366, initial-scale=1.0" />
+<title>DADA Produções</title>
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background: var(--bg);
-      line-height: 1.5;
-    }
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-    a { color: inherit; text-decoration: none; }
+<style>
+:root {
+  --page-width: 1366px;
+  --content-width: 1084px;
+  --side-margin: 141px;
+  --section-gap: 180px;
+  --navy: #17304c;
+  --off-white: #ededed;
+  --text: #1f1f1f;
+}
 
-    .container {
-      width: min(calc(100% - 48px), var(--max));
-      margin: 0 auto;
-    }
+body {
+  margin: 0;
+  min-width: var(--page-width);
+  background: var(--off-white);
+  font-family: 'DM Sans', sans-serif;
+}
 
-    header {
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(10px);
-      background: rgba(244, 241, 236, 0.9);
-      border-bottom: 1px solid rgba(29,29,27,0.08);
-      z-index: 10;
-    }
+.page {
+  width: var(--page-width);
+  margin: 0 auto;
+}
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 0;
-      gap: 24px;
-    }
+.section-shell {
+  padding: 0 var(--side-margin);
+}
 
-    .brand {
-        display: inline-flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1px;
-        line-height: 0.95;
-        color: var(--text);
-    }
+.content {
+  width: var(--content-width);
+}
 
-   .brand-mark {
-        font-family: "League Spartan", "Arial Black", sans-serif;
-        font-size: 1.5rem;
-        letter-spacing: 0.06em;
-        font-weight: 700;
-        text-transform: uppercase;
-    }
+.section {
+  margin-top: var(--section-gap);
+}
 
-   .brand-sub {
-        font-family: "DM Sans", sans-serif;
-        font-size: 0.72rem;
-        letter-spacing: 0.18em;
-        color: var(--accent);
-        text-transform: lowercase;
-        margin-left: 2px;
-    }
+/* TIPOGRAFIA */
+.section-title {
+  font-size: 36px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
 
-    .menu a {
+.section-subtitle {
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  margin-top: 24px;
+}
+
+.body-text {
+  font-size: 19px;
+  line-height: 1.5;
+  margin-top: 48px;
+}
+
+/* HERO */
+.hero {
   position: relative;
-  padding-bottom: 4px;
+  width: 1366px;
+  height: 768px;
+  background: var(--navy);
 }
 
-.menu a::after {
-  content: "";
+.hero-nav {
   position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 1px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.22s ease;
+  top: 44px;
+  right: 141px;
+  display: flex;
+  gap: 20px;
 }
 
-.menu a:hover::after {
-  transform: scaleX(1);
-    }
+.hero-nav a {
+  font-size: 16px;
+  letter-spacing: 0.8px;
+  text-decoration: none;
+  color: var(--navy);
+}
 
-    section { padding: 84px 0; }
+.hero-brand {
+  position: absolute;
+  right: 141px;
+  bottom: 150px;
+  width: 400px;
+  text-align: right;
+}
 
-    .hero {
-      padding: 90px 0 60px;
-    }
+.hero-logo {
+  width: 400px;
+}
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 40px;
-      align-items: end;
-    }
+.hero-tagline {
+  margin-top: 30px;
+  font-size: 22px;
+  letter-spacing: 0.8px;
+}
 
-    .eyebrow {
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 18px;
-    }
+/* FOTO */
+.producer-photo {
+  width: 1084px;
+  height: 396px;
+  margin-top: 48px;
+  overflow: hidden;
+}
 
-    h1, h2, h3, p { margin: 0; }
+.producer-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    h1 {
-      font-family: "League Spartan", "Arial Black", sans-serif;
-  font-size: clamp(2.9rem, 6vw, 5.6rem);
-  line-height: 0.93;
-  letter-spacing: -0.03em;
-  font-weight: 700;
-  max-width: 10ch;
-  text-transform: uppercase;
-    }
+/* EXPERIÊNCIA */
+.poster-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 100px;
+  margin-top: 48px;
+}
 
-    .lead {
-      font-size: 1.15rem;
-      color: var(--muted);
-      max-width: 56ch;
-      margin-top: 24px;
-    }
+.poster-item {
+  width: 280px;
+  text-align: center;
+}
 
-    .hero-card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      padding: 28px;
-      border-radius: 24px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.04);
-    }
+.poster-caption {
+  margin-top: 24px;
+  font-size: 18px;
+}
 
-    .hero-card p {
-      font-size: 0.98rem;
-      color: var(--muted);
-    }
+/* PARCEIRO */
+.partner-layout {
+  display: grid;
+  grid-template-columns: 612px 404px;
+  column-gap: 68px;
+  margin-top: 48px;
+}
 
-    .hero-image {
-      margin-top: 44px;
-      aspect-ratio: 16 / 8.5;
-      border-radius: 28px;
-      background: linear-gradient(135deg, rgba(139,111,87,0.28), rgba(255,255,255,0.3)),
-                  url('https://images.unsplash.com/photo-1517511620798-cec17d428bc0?auto=format&fit=crop&w=1600&q=80') center/cover;
-      overflow: hidden;
-      border: 1px solid rgba(29,29,27,0.08);
-    }
+.partner-photo {
+  width: 404px;
+  height: 410px;
+  overflow: hidden;
+}
 
-    .section-head {
-      display: grid;
-      grid-template-columns: 0.75fr 1.25fr;
-      gap: 28px;
-      margin-bottom: 36px;
-      align-items: start;
-    }
+.partner-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    h2 {
-      font-family: "League Spartan", "Arial Black", sans-serif;
-  font-size: clamp(1.6rem, 3vw, 2.5rem);
-  line-height: 1.02;
-  letter-spacing: -0.02em;
-  font-weight: 700;
-  text-transform: uppercase;
-    }
+/* CONTATO */
+.contact-band {
+  margin-top: 180px;
+  height: 320px;
+  background: var(--navy);
+  position: relative;
+}
 
-    .section-copy {
-      color: var(--muted);
-      font-size: 1.02rem;
-      max-width: 62ch;
-    }
-
-    .cards-2, .cards-3 {
-      display: grid;
-      gap: 22px;
-    }
-
-    .cards-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .cards-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-
-    .card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 24px;
-      padding: 24px;
-      min-height: 220px;
-    }
-
-    .card h3 {
-      font-size: 1.15rem;
-      margin-bottom: 8px;
-      line-height: 1.2;
-    }
-
-    .meta {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--accent);
-      margin-bottom: 14px;
-    }
-
-    .card p { color: var(--muted); }
-
-    .project-thumb {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      border-radius: 18px;
-      margin-bottom: 18px;
-      background-size: cover;
-      background-position: center;
-    }
-
-    .thumb-1 {
-      background-image: linear-gradient(rgba(0,0,0,0.06), rgba(0,0,0,0.12)),
-                        url('https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1200&q=80');
-    }
-
-    .thumb-2 {
-      background-image: linear-gradient(rgba(0,0,0,0.06), rgba(0,0,0,0.12)),
-                        url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80');
-    }
-
-    .thumb-3 {
-      background-image: linear-gradient(rgba(0,0,0,0.06), rgba(0,0,0,0.12)),
-                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80');
-    }
-
-    .partner {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .portrait {
-      min-height: 360px;
-      border-radius: 24px;
-      background: linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.1)),
-                  url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80') center/cover;
-      border: 1px solid var(--line);
-    }
-
-    .contact-box {
-      background: #1d1d1b;
-      color: #f7f3ee;
-      border-radius: 28px;
-      padding: 34px;
-    }
-
-    .contact-box p { color: rgba(247,243,238,0.78); }
-
-    .button {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 12px 18px;
-      border: 1px solid rgba(247,243,238,0.2);
-      border-radius: 999px;
-      font-size: 0.95rem;
-    }
-
-    footer {
-      padding: 30px 0 42px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid,
-      .section-head,
-      .cards-2,
-      .cards-3,
-      .partner {
-        grid-template-columns: 1fr;
-      }
-
-      .hero { padding-top: 56px; }
-      .hero-image { aspect-ratio: 4 / 5; }
-      .portrait { min-height: 300px; }
-    }
-  </style>
+.contact-content {
+  position: absolute;
+  right: 150px;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: right;
+  color: white;
+}
+</style>
 </head>
+
 <body>
-  <header>
-    <div class="container nav">
-      <a href="#top" class="brand">Dadá Produções</a>
-      <nav class="menu">
-        <a href="#produtora">A produtora</a>
-        <a href="#experiencia">Experiência</a>
-        <a href="#parceiros">Parceiros-chave</a>
-        <a href="#contato">Contato</a>
-      </nav>
+<div class="page">
+
+<header class="hero">
+  <nav class="hero-nav">
+    <a>a produtora</a>
+    <a>experiência</a>
+    <a>parceiro estratégico</a>
+    <a>contato</a>
+  </nav>
+
+  <div class="hero-brand">
+    <img class="hero-logo" src="logo.png">
+    <div class="hero-tagline">linguagem processo realização</div>
+  </div>
+</header>
+
+<section class="section section-shell">
+  <div class="content">
+    <h2 class="section-title">a produtora</h2>
+    <div class="section-subtitle">Histórias em movimento.</div>
+
+    <p class="body-text">
+      Muito prazer, eu sou Luiza Continentino...
+    </p>
+
+    <div class="producer-photo">
+      <img src="foto-luiza.png">
     </div>
-  </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="container">
-        <div class="hero-grid">
-          <div>
-            <div class="eyebrow">São Paulo · Não-ficção</div>
-            <h1>Projetos audiovisuais em não-ficção, desenvolvidos com consistência, articulação e visão estratégica.</h1>
-            <p class="lead">A Dadá Produções nasce do envolvimento de sua fundadora no desenvolvimento, na produção e na articulação de projetos audiovisuais. Sua trajetória se constrói em diálogo com parceiros estratégicos, de ampla experiência em projetos de não-ficção para TV, cinema e streaming.</p>
-          </div>
-          <aside class="hero-card">
-            <div class="meta">Atuação</div>
-            <p>Além de sua atuação em produção e articulação audiovisual, a Dadá Produções desenvolve projetos autorais e estrutura propostas para editais e captação.</p>
-          </aside>
-        </div>
-        <div class="hero-image"></div>
-      </div>
-    </section>
+    <p class="body-text">
+      É desse percurso...
+    </p>
+  </div>
+</section>
 
-    <section id="produtora">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">A produtora</div>
-          <div>
-            <h2>Uma estrutura nova, fundada sobre experiência real.</h2>
-            <p class="section-copy" style="margin-top: 16px;">Sediada em São Paulo, a Dadá Produções atua no desenvolvimento, na produção e na articulação de projetos audiovisuais. Seu campo de interesse está nas narrativas de não-ficção e nos processos que pedem, ao mesmo tempo, imaginação, rigor e capacidade de viabilização.</p>
-          </div>
-        </div>
-
-        <div class="cards-2">
-          <div class="card">
-            <div class="meta">Foco</div>
-            <h3>Não-ficção, documentário e projetos audiovisuais de relevância cultural.</h3>
-            <p>Uma atuação voltada a histórias, percursos e temas que exigem escuta, elaboração e precisão de produção.</p>
-          </div>
-          <div class="card">
-            <div class="meta">Modelo de atuação</div>
-            <h3>Desenvolvimento, produção, articulação e estruturação de propostas.</h3>
-            <p>Projetos desenvolvidos em diálogo com colaboradores e produtoras parceiras, conforme a natureza de cada realização.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="experiencia">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Experiência</div>
-          <div>
-            <h2>Atuação da fundadora em projetos de não-ficção para TV e streaming.</h2>
-            <p class="section-copy" style="margin-top: 16px;">A trajetória da Dadá Produções se constrói a partir da atuação de sua fundadora em diferentes projetos audiovisuais, em diálogo com colaboradores e parceiros de ampla experiência no setor.</p>
-          </div>
-        </div>
-
-        <div class="cards-3">
-          <article class="card">
-            <div class="project-thumb thumb-1"></div>
-            <div class="meta">Canal OFF / Globoplay</div>
-            <h3>BR230: Muito Além da Transamazônica</h3>
-            <p><strong>Luiza Continentino — Produção</strong></p>
-          </article>
-          <article class="card">
-            <div class="project-thumb thumb-2"></div>
-            <div class="meta">Canal Modo Viagem / Globoplay</div>
-            <h3>Nos Trilhos do Mundo</h3>
-            <p><strong>Luiza Continentino — Produção Executiva</strong></p>
-          </article>
-          <article class="card">
-            <div class="project-thumb thumb-3"></div>
-            <div class="meta">Canal OFF / Globoplay</div>
-            <h3>O Labirinto do Ártico</h3>
-            <p><strong>Luiza Continentino — Direção de Produção</strong></p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="parceiros">
-      <div class="container">
-        <div class="section-head">
-          <div class="eyebrow">Parceiros-chave</div>
-          <div>
-            <h2>Colaboração estratégica contínua na estruturação e viabilização dos projetos.</h2>
-            <p class="section-copy" style="margin-top: 16px;">A Dadá Produções desenvolve seus projetos em diálogo com colaboradores estratégicos e produtoras parceiras, compondo arranjos criativos e executivos de acordo com a natureza de cada realização.</p>
-          </div>
-        </div>
-
-        <div class="partner">
-          <div class="portrait"></div>
-          <div class="card">
-            <div class="meta">Parceiro criativo e estratégico | Produtor executivo associado</div>
-            <h3>Gustavo Gama Rodrigues</h3>
-            <p>Atua em colaboração contínua com a Dadá Produções no desenho, na estruturação e na viabilização dos projetos, somando à produtora sua trajetória consolidada em não-ficção para TV, cinema e streaming.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contato">
-      <div class="container">
-        <div class="contact-box">
-          <div class="meta" style="color: rgba(247,243,238,0.6);">Contato</div>
-          <h2>Vamos conversar sobre projetos, parcerias e caminhos de realização.</h2>
-          <p style="margin-top: 16px; max-width: 56ch;">Substitua aqui pelo email oficial da Dadá Produções, cidade-base e, se quiser, um link para Instagram ou portfólio complementar.</p>
-          <a class="button" href="mailto:contato@dadaproducoes.com">contato@dadaproducoes.com</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">Dadá Produções · São Paulo · Projetos audiovisuais em não-ficção</div>
-  </footer>
+</div>
 </body>
 </html>
